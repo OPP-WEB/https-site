@@ -49,6 +49,17 @@
       return m ? [m[1].trim(), m[2].trim()] : ['', l];
     });
   }
+  // caption fallback when Shopify alt text is empty: match the upload's file name against the local
+  // catalog (e.g. ".../04_back_<hash>.png" ↔ "assets/the-01/04_back.png"), else the same position
+  function localCaption(url, local, i) {
+    var imgs = local.images || [];
+    var file = decodeURIComponent((url.split('?')[0].split('/').pop() || '')).toLowerCase();
+    var hit = imgs.find(function (li) {
+      var stem = (li.url.split('/').pop() || '').replace(/\.[a-z0-9]+$/i, '').toLowerCase();
+      return stem && file.indexOf(stem) === 0;
+    });
+    return hit ? hit.alt : (imgs[i] ? imgs[i].alt : '');
+  }
   function normalizeProduct(n) {
     var variant = (n.variants.nodes.find(function (v) { return v.availableForSale; }) || n.variants.nodes[0]) || null;
     var specs = parseSpecs(meta(n, 'specs'));
@@ -67,7 +78,7 @@
       available: !!(variant && variant.availableForSale) && n.availableForSale,
       variantId: variant ? variant.id : null,
       featured: (n.tags || []).indexOf(cfg.featuredTag || 'featured') !== -1 || !!local.featured,
-      images: images.length ? images : (local.images || []),
+      images: images.length ? images.map(function (im, i) { return { url: im.url, alt: im.alt || localCaption(im.url, local, i) }; }) : (local.images || []),
       specs: specs.length ? specs : (local.specs || [])
     };
   }
