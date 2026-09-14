@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>https — all connected without knowing.</title>
+<link rel="icon" href="assets/logo/logo_black.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@300;400&display=swap">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<div class="page">
+
+  <nav class="nav">
+    <a href="index.html" class="nav-home"><img src="assets/logo/logo_black.png" alt="https symbol">https://join.https</a>
+    <div class="nav-links">
+      <a href="pieces.html">https://pieces</a>
+      <a href="story.html">https://story</a>
+      <a href="bag.html" data-cart-label>https://bag</a>
+    </div>
+  </nav>
+
+  <!-- 1. signal -->
+  <header class="hero">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="mono soft">https · designed in the Netherlands</span>
+        <div class="hero-stack">
+          <h1 class="title-page">All connected without knowing.</h1>
+          <p class="body">A symbol for people who are connected without knowing it.</p>
+          <div class="cta-row">
+            <a href="pieces.html" class="cta">See the pieces →</a>
+            <a href="story.html" class="cta">Read the story →</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image hero-image--mark">
+        <img src="assets/logo/logo_black.png" alt="https symbol">
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. discovery -->
+  <section class="beat story-grid discovery" data-discovery>
+    <span class="beat-label">https://name</span>
+    <div class="story-content">
+      <h2 class="title-section">You've typed it a thousand times. You've never looked at it.</h2>
+      <div class="fragments" aria-label="everyday addresses that start with https">
+        <span><span class="key">https</span><span class="rest">://open.spotify.com/track/4uLU6hMCjMI75M1A2tKUQC</span></span>
+        <span><span class="key">https</span><span class="rest">://www.instagram.com/p/c7x2k9m/</span></span>
+        <span><span class="key">https</span><span class="rest">://maps.app.goo.gl/amsterdam-centraal</span></span>
+        <span><span class="key">https</span><span class="rest">://mail.google.com/mail/u/0/#inbox</span></span>
+        <span><span class="key">https</span><span class="rest">://www.youtube.com/watch?v=dQw4w9WgXcQ</span></span>
+      </div>
+      <p class="body">Every message you send, every page you open, every song you stream travels through the same five letters. It does its work in silence. It never asks to be noticed. It just holds the connection.</p>
+    </div>
+    <img src="assets/logo/logo_black.png" alt="https symbol" class="discovery-mark">
+  </section>
+
+  <!-- 5/6. featured pieces (from the catalog) -->
+  <div data-featured></div>
+
+  <!-- 7. connection -->
+  <section class="closing">
+    <div>
+      <div class="signal" aria-hidden="true">
+        <span class="signal-dot"></span>
+        <span class="signal-ring"></span>
+        <span class="signal-label">connected</span>
+      </div>
+      <p class="closing-statement">Somewhere right now, someone you'll never meet is wearing the same symbol.</p>
+    </div>
+  </section>
+
+  <section class="everywhere" id="everywhere">
+    <div class="everywhere-grid">
+      <div class="everywhere-copy">
+        <span class="mono">https://everywhere</span>
+        <p class="body">Strangers wearing the same symbol.<br>Connected without knowing.</p>
+      </div>
+      <div class="map-frame">
+        <svg data-map viewBox="0 0 960 460" preserveAspectRatio="xMidYMid meet" role="img" aria-label="World map of strangers"></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. join -->
+  <section class="join" data-join>
+    <span class="beat-label">https://join</span>
+    <div class="join-stack">
+      <h2 class="title-section">Join the first connection.</h2>
+      <p class="body soft">One message when something new appears. Nothing else.</p>
+      <form class="join-form" novalidate>
+        <input type="email" name="email" placeholder="your@email" autocomplete="email" required aria-label="email address">
+        <button type="submit" class="btn">Join →</button>
+      </form>
+      <p class="join-note" data-join-note>No newsletters. No offers. Just the signal.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div>
+      <span>https · designed in the Netherlands</span>
+      <a href="https://joinhttps.net">joinhttps.net</a>
+    </div>
+  </footer>
+</div>
+<script src="js/config.js"></script>
+<script src="js/catalog.local.js"></script>
+<script src="js/shop.js"></script>
+<script src="js/site.js"></script>
+<script src="https://unpkg.com/d3@7.9.0/dist/d3.min.js" integrity="sha384-CjloA8y00+1SDAUkjs099PVfnY2KmDC2BZnws9kh8D/lX1s46w6EPhpXdqMfjK6i" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js" integrity="sha384-Ukv1p/xTma6P4/2bY5KzWBw+ydSpXmhCMtyciIQVDJ1RmOxtCYNMF1uXT9T63H67" crossorigin="anonymous"></script>
+<script src="js/map.js"></script>
+<script src="js/home.js"></script>
+</body>
+</html>

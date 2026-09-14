@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>https — piece</title>
+<link rel="icon" href="assets/logo/logo_black.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@300;400&display=swap">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<div class="page page--product">
+
+  <nav class="nav">
+    <a href="index.html" class="nav-home"><img src="assets/logo/logo_black.png" alt="https symbol">https://join.https</a>
+    <div class="nav-links">
+      <a href="pieces.html" class="is-active">https://pieces</a>
+      <a href="story.html">https://story</a>
+      <a href="bag.html" data-cart-label>https://bag</a>
+    </div>
+  </nav>
+
+  <section class="beat story-grid" data-piece-missing hidden style="flex:1">
+    <span class="beat-label">https://pieces</span>
+    <div class="story-content">
+      <h1 class="title-section">This piece isn't here.</h1>
+      <a href="pieces.html" class="cta" style="align-self:flex-start">See the pieces →</a>
+    </div>
+  </section>
+
+  <section class="product" data-piece hidden>
+    <div class="product-grid product-grid--wide">
+      <div class="product-col">
+      <div class="product-panel">
+        <div class="product-meta">
+          <span data-handle></span><span data-availability></span>
+        </div>
+        <div class="object-stack" style="gap: 12px;">
+          <h1 class="title-section" data-title></h1>
+          <p class="product-sub" data-sub></p>
+        </div>
+        <div class="product-price"><span data-price></span><span class="mono soft">Shipping calculated at checkout</span></div>
+        <div class="product-actions">
+          <button type="button" class="btn" data-add>Add to bag</button>
+          <a href="bag.html" data-cart-link></a>
+        </div>
+        <p class="product-ship">Ships worldwide from the Netherlands.<br>One size, adjustable. Designed to age with you.</p>
+        <p class="body" data-description></p>
+        <div class="specs" data-specs></div>
+        <div class="product-others" data-others></div>
+      </div>
+      </div>
+      <div class="gallery">
+        <div class="gallery-track" data-track></div>
+        <div class="gallery-bar">
+          <span data-counter>01 / 10</span>
+          <div>
+            <button type="button" class="btn-icon" data-prev aria-label="Previous photo">←</button>
+            <button type="button" class="btn-icon" data-next aria-label="Next photo">→</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-story">
+      <section class="story-block story-grid">
+        <span class="story-label">https://why-a-cap</span>
+        <div class="story-content">
+          <h2 class="title-section">Why a cap?</h2>
+          <p class="body">People wear caps while moving through crowded cities, public spaces and everyday moments without drawing attention to themselves. It's the one thing you put on before you leave and forget you're wearing.</p>
+          <p class="body">Two strangers can pass each other wearing the same symbol without ever speaking. The connection exists long before either person notices it.</p>
+          <p class="body">Washed and distressed on purpose. Designed to age with you. Every mark you add makes it more yours.</p>
+        </div>
+      </section>
+    </div>
+
+    <div class="product-close">
+      <div>
+        <div class="signal" aria-hidden="true">
+          <span class="signal-dot"></span>
+          <span class="signal-ring"></span>
+        </div>
+        <p class="closing-statement">Somewhere right now, someone you'll never meet is wearing the same symbol.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="buy-bar" aria-hidden="false">
+    <span data-bar-label></span>
+    <button type="button" class="btn" data-add-bar>Add to bag</button>
+  </div>
+
+  <footer class="footer">
+    <div>
+      <span>https · designed in the Netherlands</span>
+      <a href="https://joinhttps.net">joinhttps.net</a>
+    </div>
+  </footer>
+</div>
+<script src="js/config.js"></script>
+<script src="js/catalog.local.js"></script>
+<script src="js/shop.js"></script>
+<script src="js/site.js"></script>
+<script src="js/piece.js"></script>
+</body>
+</html>
