@@ -54,7 +54,9 @@ Both backends return the same product shape:
    storefrontToken: '…',
    ```
 3. Products then come from Shopify; the bag becomes a Shopify cart and **Checkout →** opens
-   Shopify's checkout (`cart.checkoutUrl`). `js/catalog.local.js` is ignored in this mode.
+   Shopify's checkout (`cart.checkoutUrl`). While a Shopify product is still incomplete, any empty
+   field (images, subtitle, specs, description) is borrowed from the entry with the same handle in
+   `js/catalog.local.js`. Price and availability always come from Shopify.
 
 Product content the design expects, as **product metafields** (Settings → Custom data → Products). Namespace `https` is preferred, but Shopify's default `custom` namespace works too:
 

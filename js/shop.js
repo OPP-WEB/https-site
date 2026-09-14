@@ -55,16 +55,20 @@
     var images = n.images.nodes.map(function (i) { return { url: i.url, alt: i.altText || '' }; });
     if (!images.length && n.featuredImage) images = [{ url: n.featuredImage.url, alt: n.featuredImage.altText || '' }];
     var price = variant ? variant.price : n.priceRange.minVariantPrice;
+    // while a product is still being filled in on Shopify, borrow copy/images from the local catalog (same handle)
+    var local = (window.HTTPS_LOCAL_CATALOG || []).find(function (l) { return l.handle === n.handle; }) || {};
     return {
-      id: n.id, handle: n.handle, title: n.title,
-      subtitle: meta(n, 'subtitle'), line: meta(n, 'line'), edition: meta(n, 'edition'),
-      colour: meta(n, 'colour'), size: meta(n, 'size') || (variant && variant.title !== 'Default Title' ? variant.title : 'one size'),
-      description: n.description || '',
+      id: n.id, handle: n.handle, title: n.title || local.title,
+      subtitle: meta(n, 'subtitle') || local.subtitle || '', line: meta(n, 'line') || local.line || '', edition: meta(n, 'edition') || local.edition || '',
+      colour: meta(n, 'colour') || local.colour || '',
+      size: meta(n, 'size') || (variant && variant.title !== 'Default Title' ? variant.title : (local.size || 'one size')),
+      description: n.description || local.description || '',
       price: { amount: Number(price.amount), currency: price.currencyCode },
       available: !!(variant && variant.availableForSale) && n.availableForSale,
       variantId: variant ? variant.id : null,
-      featured: (n.tags || []).indexOf(cfg.featuredTag || 'featured') !== -1,
-      images: images, specs: specs
+      featured: (n.tags || []).indexOf(cfg.featuredTag || 'featured') !== -1 || !!local.featured,
+      images: images.length ? images : (local.images || []),
+      specs: specs.length ? specs : (local.specs || [])
     };
   }
   function normalizeCart(c) {
@@ -74,9 +78,10 @@
       subtotal: { amount: Number(c.cost.subtotalAmount.amount), currency: c.cost.subtotalAmount.currencyCode },
       lines: c.lines.nodes.map(function (l) {
         var v = l.merchandise, p = v.product;
+        var local = (window.HTTPS_LOCAL_CATALOG || []).find(function (x) { return x.handle === p.handle; }) || {};
         return { id: l.id, quantity: l.quantity, variantId: v.id,
           price: { amount: Number(v.price.amount), currency: v.price.currencyCode },
-          product: { handle: p.handle, title: p.title, subtitle: (p.sub && p.sub.value) || (p.sub2 && p.sub2.value) || '', image: p.featuredImage ? p.featuredImage.url : '' } };
+          product: { handle: p.handle, title: p.title, subtitle: (p.sub && p.sub.value) || (p.sub2 && p.sub2.value) || local.subtitle || '', image: p.featuredImage ? p.featuredImage.url : (local.images && local.images[0] ? local.images[0].url : '') } };
       })
     };
   }
